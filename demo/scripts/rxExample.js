@@ -8,10 +8,22 @@ angular.module('demoApp')
         },
         link: function (scope) {
             var baseName = 'examples/' + scope.name;
+            scope.expanded = false;
 
             scope.markup_url = baseName + '.html';
             scope.javascript_url = baseName + '.js';
             scope.less_url = baseName + '.less';
+
+            scope.toggle = function (tab) {
+                if (tab == scope.tab) {
+                    // toggle expanded if clicking active tab
+                    scope.expanded = !scope.expanded;
+                } else {
+                    // always expand upon clicking new tab
+                    scope.expanded = true;
+                }
+                scope.tab = tab;
+            };//toggle()
 
             /* check for source files before trying to ng-include them */
             $http.get(scope.javascript_url).then(

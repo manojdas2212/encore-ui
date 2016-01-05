@@ -1,16 +1,33 @@
 <div class="example">
-  <tabset>
-    <tab heading="Demo">
-      <div ng-include="markup_url"></div>
-    </tab>
-    <tab heading="Markup">
-      <rx-prism language="markup" code-url="{{markup_url}}"></rx-prism>
-    </tab>
-    <tab ng-if="has_javascript" heading="JavaScript">
-      <rx-prism language="clike" code-url="{{javascript_url}}"></rx-prism>
-    </tab>
-    <tab ng-if="has_less" heading="Less">
-      <rx-prism language="css" code-url="{{less_url}}"></rx-prism>
-    </tab>
-  </tabset>
+  <div class="demo">
+    <h5>DEMO</h5>
+    <div ng-include="markup_url"></div>
+  </div>
+  <div class="tabs" ng-class="{ expanded: expanded }">
+    <ul class="tab-bar">
+      <li ng-click="toggle('markup')" ng-class="{ active: tab == 'markup' }">
+        Markup
+      </li>
+      <li ng-click="toggle('js')" ng-class="{ active: tab == 'js' }" ng-if="has_javascript">
+        JavaScript
+      </li>
+      <li ng-click="toggle('less')" ng-class="{ active: tab == 'less' }" ng-if="has_less">
+        Less
+      </li>
+    </ul>
+
+    <div ng-if="expanded" ng-switch="tab" class="tab-content">
+      <div ng-switch-when="markup">
+        <rx-prism language="markup" code-url="{{markup_url}}"></rx-prism>
+      </div>
+
+      <div ng-switch-when="js">
+        <rx-prism language="clike" code-url="{{javascript_url}}"></rx-prism>
+      </div>
+
+      <div ng-switch-when="less">
+        <rx-prism language="css" code-url="{{less_url}}"></rx-prism>
+      </div>
+    </div>
+  </div>
 </div>

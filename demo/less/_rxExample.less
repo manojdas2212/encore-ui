@@ -12,4 +12,54 @@ rx-example {
       margin-top: 0;
     }
   }
+
+  .demo {
+    border: 1px solid @gray-500;
+    background-color: @white;
+    padding: 10px;
+
+    h5 {
+      color: @gray-500;
+    }
+  }
+
+  .tabs {
+    .tab-bar {
+      li {
+        display: inline-block;
+        padding: 4px 6px;
+        border-bottom: 4px solid transparent;
+
+        color: @gray-700;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+
+    &.expanded {
+      .tab-bar {
+        li {
+          &.active {
+            border-bottom-color: @blue-700;
+            color: @blue-700;
+          }
+        }
+      }
+    }
+
+    .tab-content {
+      background-color: @white;
+      border: 1px solid @blue-700;
+      padding: 0px 10px;
+    }
+  }
+
+  tabset {
+    display: block;
+    border: 1px solid @gray-500;
+    border-top: 0;
+    background-color: @white;
+  }
 }
