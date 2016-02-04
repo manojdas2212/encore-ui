@@ -24,6 +24,8 @@ module.exports = {
     meta: {
         modules: 'angular.module(\'<%= config.moduleName %>\', [<%= config.srcModules %>, ' +
             '\'<%= config.dependencies.join("\',\'") %>\']);',
+        version: 'angular.module(\'<%= config.moduleName %>\')' +
+            '.constant(\'ENCORE_UI_VERSION\', \'<%= pkg.version %>\');',
         tplmodules: 'angular.module(\'<%= config.moduleName %>.tpls\', [<%= config.tplModules %>]);',
         all: 'angular.module(\'<%= config.moduleName %>\', ' +
             '[\'<%= config.moduleName %>.tpls\', <%= config.srcModules %>, ' +
