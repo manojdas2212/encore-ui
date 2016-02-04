@@ -44,6 +44,7 @@
  * * {@link quarks.service:rxStatusMappings rxStatusMappings}
  */
 angular.module('encore.ui.quarks', [
+    'encore.ui.debug',
     'ngResource',
     'debounce',
 ]);

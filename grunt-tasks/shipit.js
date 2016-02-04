@@ -21,6 +21,9 @@ module.exports = function (grunt) {
             // increment version in readme
             tasks.push('replace:readme');
 
+            // increment ENCORE_UI_VERSION constant
+            tasks.push('replace:version');
+
             // build the code
             tasks.push('default');
 
@@ -29,7 +32,7 @@ module.exports = function (grunt) {
 
             // commit version increment
             tasks.push('bump-commit');
-            
+
             // push rx-page-objects to npm
             if (arg === 'hotfix') {
                 tasks.push('rxPageObjects:hotfix');

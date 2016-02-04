@@ -12,12 +12,14 @@ module.exports = {
             to: '-<%= pkg.version %>'
         }]
     },
-    'bower': {
-        src: ['bower/*.css', 'bower/*.map', 'bower/*.js'],
+    'version': {
+        src: [
+            'src/debug/debug.module.js'
+        ],
         overwrite: true,
         replacements: [{
-            from: config.regex.version,
-            to: ''
+            from: /(?:\d+\.){2}\d+(?:-\d+)*/g,
+            to: '<%= pkg.version %>'
         }]
     }
 };
