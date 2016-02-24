@@ -93,10 +93,13 @@ angular.module('encore.ui.rxMultiSelect')
             rxSelectDirective[0].link.apply(this, arguments);
 
             var previewElement = rxDOMHelper.find(element, '.preview')[0];
+            var parentElement = element.parent(); // Should be a <div class="rxSelect">
+            var originalZIndex = parentElement.css('z-index'); // Capture z-index, if any
 
             var documentClickHandler = function (event) {
                 if (event.target !== previewElement) {
                     scope.listDisplayed = false;
+                    parentElement.css('z-index', originalZIndex);
                     scope.$apply();
                 }
             };
@@ -111,6 +114,12 @@ angular.module('encore.ui.rxMultiSelect')
             scope.toggleDisplay = function (event) {
                 if (event.target === previewElement) {
                     scope.listDisplayed = !scope.listDisplayed;
+                    if (scope.listDisplayed) {
+                        // Ensure the dropdown from this rxMultiSelect doesn't
+                        // have weird issues with another rxMultiSelect that lives
+                        // right under it
+                        parentElement.css('z-index', 1000);
+                    }
                 } else {
                     event.stopPropagation();
                 }
