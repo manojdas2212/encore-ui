@@ -1,4 +1,4 @@
-angular.module('encore.ui.rxSpinner')
+angular.module('encore.ui.elements')
 /**
  * @ngdoc directive
  * @name rxSpinner.directive:rxSpinner
