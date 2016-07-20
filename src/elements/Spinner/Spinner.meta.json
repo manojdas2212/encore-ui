@@ -1,0 +1,16 @@
+{
+    "displayName": "Spinners",
+    "stability": "stable",
+    "description": "Adds a spinner icon to any element",
+    "isLegacy": true,
+    "keywords": [
+
+    	"spinner",
+    	"button",
+    	"label",
+    	"progress",
+    	"pending",
+    	"loading",
+    	"rxSpinner"
+    	]
+}
