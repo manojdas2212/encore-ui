@@ -1,4 +1,4 @@
 angular.module('demoApp')
-.controller('SpinnerCtrl', function ($scope) {
+.controller('SpinnerSimpleCtrl', function ($scope) {
     $scope.loading = true;
 });
