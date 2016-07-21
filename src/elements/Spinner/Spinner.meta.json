@@ -2,14 +2,14 @@
     "displayName": "Spinners",
     "stability": "stable",
     "description": "Adds a spinner icon to any element",
-    "isLegacy": true,
+    "api": "directive:rxSpinner",
     "keywords": [
-    	"spinner",
     	"button",
     	"label",
+        "loading",
     	"progress",
     	"pending",
-    	"loading",
-    	"rxSpinner"
+    	"rxSpinner",
+        "spinner"
     	]
 }
