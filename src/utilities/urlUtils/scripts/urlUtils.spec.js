@@ -10,6 +10,7 @@ describe('utilities:urlUtils', function () {
 
     beforeEach(function () {
         module('encore.ui.utilities');
+        module('encore.ui.elements');
         module('encore.ui.rxEnvironment');
         // Provide any mocks needed
         module(function ($provide) {
@@ -192,18 +193,18 @@ describe('utilities:urlUtils', function () {
             var parsed = urlutils.parseUrl(undefined);
             expect(parsed.protocol).to.equal('http:');
             expect(parsed.hostname).to.equal('localhost');
-            expect(parsed.port).to.equal('9877');
+            expect(parsed.port).to.equal('9878');
             expect(parsed.pathname).to.equal('/undefined');
-            expect(parsed.host).to.equal('localhost:9877');
+            expect(parsed.host).to.equal('localhost:9878');
         });
 
         it('should return current loaded page values if the url is blank', function () {
             var parsed = urlutils.parseUrl('');
             expect(parsed.protocol).to.equal('http:');
             expect(parsed.hostname).to.equal('localhost');
-            expect(parsed.port).to.equal('9877');
+            expect(parsed.port).to.equal('9878');
             expect(parsed.pathname).to.equal('/context.html');
-            expect(parsed.host).to.equal('localhost:9877');
+            expect(parsed.host).to.equal('localhost:9878');
         });
 
         it('should return empty values if the url is null', function () {
